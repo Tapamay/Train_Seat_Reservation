@@ -1,0 +1,17 @@
+<div>
+  <h1>Train Seat Reservation</h1>
+  <div class="coach">
+    <div *ngFor="let row of rows; let rowIndex = index" class="row">
+      <div *ngFor="let seat of row" 
+           class="seat" 
+           [ngClass]="{'booked': isSeatBooked(seat)}">
+        {{ seat }}
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <input type="number" [(ngModel)]="requiredSeats" placeholder="Enter seats to book" />
+    <button (click)="bookSeats(requiredSeats)">Book Seats</button>
+  </div>
+</div>
